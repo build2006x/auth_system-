@@ -1,0 +1,15 @@
+@"
+.Otp_auth/
+.env/
+.venv/
+Lib/
+Scripts/
+share/
+ipthon.1/
+pyvenv.cfg
+__pycache__/
+*.pyc
+.env
+.vscode/
+.idea/
+"@ | Out-File -FilePath .gitignore -Encoding UTF8
