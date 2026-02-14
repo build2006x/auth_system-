@@ -6,6 +6,7 @@ Lib/
 Scripts/
 share/
 ipthon.1/
+inlcude/
 pyvenv.cfg
 __pycache__/
 *.pyc
