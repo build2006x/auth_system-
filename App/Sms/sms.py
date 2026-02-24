@@ -8,9 +8,9 @@ load_dotenv()
 
 api =  APIRouter()
 
-account_sid = os.getenv("TWILIO_ACCOUNT_SID")
-account_token = os.getenv("TWILIO_ACCOUNT_TOKEN")
-account_service = os.getenv("TWILIO_SERVICE_ID")
+account_sid = os.getenv("Twilio_Sid")
+account_token = os.getenv("Twilio_token")
+account_service = os.getenv("Twilio_Service_id")
 
 client = Client(account_sid,account_token)
 
