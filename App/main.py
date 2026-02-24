@@ -3,7 +3,7 @@ from fastapi import FastAPI
 from App.VoiceFile.VioceCall import VoiceRouter
 from App.Totp.totpOffline import apps
 from App.Sms.sms import api
-
+from fastapi.middleware.cors import CORSMiddleware
 
 main  = FastAPI()
 
