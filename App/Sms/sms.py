@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 import os
 from pydantic import BaseModel
 
-
 load_dotenv()
 
 api =  APIRouter()
