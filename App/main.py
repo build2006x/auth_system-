@@ -10,10 +10,12 @@ main  = FastAPI()
 
 ### setup the middleware for the frontend to the acess the function in the backend logic 
 
+origins = [ "http://localhost:5173", "http://127.0.0.1:5173" ]
+
 from fastapi.middleware.cors import CORSMiddleware
 main.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  
+    allow_origins=origins,  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
