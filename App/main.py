@@ -7,10 +7,10 @@ from fastapi.middleware.cors import CORSMiddleware
 
 main  = FastAPI()
 
+origins = [ "http://localhost:5173", 
+           "http://127.0.0.1:8000" ]
 
 ### setup the middleware for the frontend to the acess the function in the backend logic 
-
-origins = [ "http://localhost:5173", "http://127.0.0.1:5173" ]
 
 from fastapi.middleware.cors import CORSMiddleware
 main.add_middleware(
@@ -20,7 +20,6 @@ main.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # main.include_router(router)
 main.include_router(api)

@@ -3,6 +3,8 @@ from twilio.rest import Client
 from fastapi import APIRouter,Query
 from dotenv import load_dotenv
 import os
+from pydantic import BaseModel
+
 
 load_dotenv()
 
@@ -15,10 +17,10 @@ account_service = os.getenv("Twilio_Service_id")
 client = Client(account_sid,account_token)
 
 @api.post("/send_otp")
-def send_Otp(PhoneNumber:str=Query(...)):
+def send_Otp(PhoneNumber:int):
     try:
         verification = client.verify.services(str(account_service)).verifications.create(
-            to=PhoneNumber, channel="sms"
+            to=f"+91{str(PhoneNumber)}", channel="sms"
         )
         return {"status": verification.status}
     except Exception as e:
