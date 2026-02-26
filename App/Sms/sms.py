@@ -9,6 +9,8 @@ load_dotenv()
 
 api =  APIRouter()
 
+### pydantic vaildation
+
 account_sid = os.getenv("Twilio_Sid")
 account_token = os.getenv("Twilio_token")
 account_service = os.getenv("Twilio_Service_id")
@@ -16,8 +18,9 @@ account_service = os.getenv("Twilio_Service_id")
 client = Client(account_sid,account_token)
 
 @api.post("/send_otp")
-def send_Otp(PhoneNumber:int):
+def send_Otp(PhoneNumber:int,Username:str):
     try:
+        print(Username)
         verification = client.verify.services(str(account_service)).verifications.create(
             to=f"+91{str(PhoneNumber)}", channel="sms"
         )
