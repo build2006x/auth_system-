@@ -39,7 +39,7 @@ async def sendCode(Email:email):
            server.quit()
            return {"status": "success", "code_sent": code} 
         except Exception as e: 
-             return {"status": "error", "details": str(e)}
+             return {"status": "error", "details": str(e.message)}
 
 
 

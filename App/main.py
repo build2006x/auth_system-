@@ -4,6 +4,7 @@ from App.VoiceFile.VioceCall import VoiceRouter
 from App.Totp.totpOffline import apps
 from App.Sms.sms import api
 from fastapi.middleware.cors import CORSMiddleware
+from App.EmailFile.gmailSender import router
 
 main  = FastAPI()
 
@@ -23,6 +24,7 @@ main.add_middleware(
 
 # main.include_router(router)
 main.include_router(api)
+main.include_router(router)
 main.include_router(VoiceRouter)
 main.include_router(apps)
 
