@@ -10,6 +10,7 @@ inlcude/
 pyvenv.cfg
 __pycache__/
 *.pyc
+.env
 .vscode/
 .env
 .idea/
