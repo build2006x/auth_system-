@@ -11,5 +11,6 @@ pyvenv.cfg
 __pycache__/
 *.pyc
 .vscode/
+.env
 .idea/
 "@ | Out-File -FilePath .gitignore -Encoding UTF8
