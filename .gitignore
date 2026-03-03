@@ -12,5 +12,6 @@ __pycache__/
 *.pyc
 .env
 .vscode/
+.env
 .idea/
 "@ | Out-File -FilePath .gitignore -Encoding UTF8
