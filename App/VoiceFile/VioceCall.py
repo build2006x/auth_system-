@@ -21,7 +21,7 @@ def speak(text: str):
 
 @VoiceRouter.get("/speak")
 async def speak_random_number():
-    number = random.randint(1000, 9999)
+    number = random.randint(100, 999)
     text = f"Your verification number is {number}"
 
     loop = asyncio.get_running_loop()
@@ -31,10 +31,12 @@ async def speak_random_number():
             loop.run_in_executor(executor, speak, text),
             timeout=6
         )
+       
     except asyncio.TimeoutError:
         return {"error": "TTS timeout"}
+    return {"code_sent":number}
 
-    return {
-        "spoken_text": text,
-        "number": number
-    }
+   
+
+
+

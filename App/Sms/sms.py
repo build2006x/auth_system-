@@ -15,6 +15,8 @@ account_sid = os.getenv("Twilio_Sid")
 account_token = os.getenv("Twilio_token")
 account_service = os.getenv("Twilio_Service_id")
 
+print(account_sid,account_service,account_token)
+
 client = Client(account_sid,account_token)
 
 @api.post("/send_otp")
