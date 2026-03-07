@@ -15,3 +15,4 @@ __pycache__/
 .env
 .idea/
 "@ | Out-File -FilePath .gitignore -Encoding UTF8
+.vercel
