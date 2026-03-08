@@ -7,18 +7,16 @@ from fastapi.middleware.cors import CORSMiddleware
 from App.EmailFile.gmailSender import router
 
 app  = FastAPI()
-
 origins = [
-    "http://localhost:5173",                        # local dev
-    "https://my-react-beta-fawn.vercel.app",        # ✅ your production frontend
-    "https://my-react-jz5dcmbea-barath-kuamars-projects.vercel.app",  # ✅ preview URL too
+    "http://localhost:5173",
+    "https://my-react-beta-fawn.vercel.app",
+    "https://my-react-jz5dcmbea-barath-kuamars-projects.vercel.app",
 ]
+
 
 ### setup the middleware for the frontend to the acess the function in the backend logic 
 
-@app.get("/")
-def hell0():
-    return "checking the deployment of the backend code"
+
 
 from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(
@@ -35,3 +33,7 @@ app.include_router(router)
 app.include_router(VoiceRouter)
 app.include_router(apps)
 
+
+@app.get("/")
+def hell0():
+    return "checking the deployment of the backend code"
