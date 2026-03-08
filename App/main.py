@@ -8,10 +8,10 @@ from App.EmailFile.gmailSender import router
 
 app  = FastAPI()
 
-origins = [ 
-    "http://localhost:5173", 
-    "http://127.0.0.1:8000",
-    "*"
+origins = [
+    "http://localhost:5173",                        # local dev
+    "https://my-react-beta-fawn.vercel.app",        # ✅ your production frontend
+    "https://my-react-jz5dcmbea-barath-kuamars-projects.vercel.app",  # ✅ preview URL too
 ]
 
 ### setup the middleware for the frontend to the acess the function in the backend logic 
