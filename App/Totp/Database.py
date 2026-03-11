@@ -3,10 +3,14 @@ from sqlalchemy import Column, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from pydantic import BaseModel
+import os
+from dotenv import load_dotenv
 
-DATABASE_URL = "postgresql://postgres:barathkumar@localhost:5433/OtpApp"
+load_dotenv()
 
-engine = create_engine(DATABASE_URL)
+DATABASE = os.getenv("DATABASE_URL")
+
+engine = create_engine(DATABASE)
 
 SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 
