@@ -7,12 +7,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from App.EmailFile.gmailSender import router
 
 app  = FastAPI()
-origins = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "https://my-react-beta-fawn.vercel.app",
-    "https://my-react-jz5dcmbea-barath-kuamars-projects.vercel.app",
-]
+# origins = [
+#     "http://localhost:5173",
+#     "http://127.0.0.1:5173",
+#     "https://my-react-beta-fawn.vercel.app",
+#     "https://my-react-jz5dcmbea-barath-kuamars-projects.vercel.app",
+#     "*",
+# ]
 
 
 ### setup the middleware for the frontend to the acess the function in the backend logic 
@@ -22,7 +23,7 @@ origins = [
 from fastapi.middleware.cors import CORSMiddleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

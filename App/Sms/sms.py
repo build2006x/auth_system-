@@ -15,15 +15,16 @@ account_token = os.getenv("Twilio_token")
 account_service = os.getenv("Twilio_Service_id")
 client = Client(account_sid,account_token)
 
-@api.post("/send_otp")
-def send_Otp(PhoneNumber:int):
+@api.api_route("/send_otp", methods=["GET", "POST"])
+
+def send_Otp(PhoneNumber: str):
     try:
         verification = client.verify.services(str(account_service)).verifications.create(
-            to=f"+91{str(PhoneNumber)}", channel="sms"
+            to=f"+91{PhoneNumber}", channel="sms"
         )
         return {"status": verification.status}
     except Exception as e:
-        print(e)
+        print(f"Error in send_Otp: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 def verify_otp(phone: str, code: str):
