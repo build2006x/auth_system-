@@ -15,8 +15,7 @@ account_token = os.getenv("Twilio_token")
 account_service = os.getenv("Twilio_Service_id")
 client = Client(account_sid,account_token)
 
-@api.api_route("/send_otp", methods=["GET", "POST"])
-
+@api.get("/OtpSend")
 def send_Otp(PhoneNumber: str):
     try:
         verification = client.verify.services(str(account_service)).verifications.create(
