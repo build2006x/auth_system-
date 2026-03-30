@@ -2,17 +2,25 @@ from fastapi import APIRouter
 import pyttsx3
 import random
 import asyncio
+import sys
 from concurrent.futures import ThreadPoolExecutor
 
 VoiceRouter = APIRouter(prefix="/tts", tags=["TTS"])
 executor = ThreadPoolExecutor(max_workers=1)
 
 def speak(text: str):
-    engine = pyttsx3.init('sapi5') 
+    if sys.platform == 'win32':
+        engine = pyttsx3.init('sapi5')
+    else:
+        engine = pyttsx3.init()
+    
     # <-- IMPORTANT: create fresh
-    voices = engine.getProperty('voices')
-    engine.setProperty('voice', voices[1].id)
-    engine.setProperty('rate', 120)
+    voices = list(engine.getProperty('voices'))
+    if len(voices) > 1:
+        engine.setProperty('voice', voices[2].id)
+    elif voices:
+        engine.setProperty('voice', voices[0].id)
+    engine.setProperty('rate',120)
 
     engine.say(text)
     engine.runAndWait()
