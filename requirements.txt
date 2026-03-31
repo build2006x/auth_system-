@@ -48,7 +48,6 @@ odict==1.9.0
 optional-django==0.1.0
 parso==0.8.5
 pexpect==4.9.0
-pillow==11.2.1
 plumber==1.7
 prompt_toolkit==3.0.52
 propcache==0.4.1
